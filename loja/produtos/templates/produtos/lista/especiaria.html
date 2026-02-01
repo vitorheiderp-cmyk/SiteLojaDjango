@@ -1,11 +1,17 @@
-% extends 'paginas/base.html' %}
+{% extends 'paginas/base.html' %}
 {% load static %}
 {% block titulo %}
 Lista de Especiarias
 {% endblock %}
 
 {% block conteudo %}
-<h3>Lista de Especiarias registradas</h3>
+<h3>Lista de Especiarias registradas
+<a href="{% url 'criar-especiaria' %}" class="btn btn-primary btn-sm float-end">
+Adicionar Livros
+
+</a>
+
+</h3>
 <hr>
 <div class="table-responsive">
     <table class="table table-striped">
@@ -14,7 +20,7 @@ Lista de Especiarias
             <th>Valor</th>
             <th>Disponibilidade</th>
             <th>Descricao</th>
-
+            <th>Opções</th>
         </tr>
         {% for especiaria in object_list %} <tr>
             <td>{{ especiaria.nome }}</td>
@@ -34,7 +40,7 @@ Lista de Especiarias
 
         {% empty %}
         <tr>
-            <td colspan="3">
+            <td colspan="5">
                 Nenhum campo registro.
             </td>
         </tr>
